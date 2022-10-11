@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MyOSGEarthQTClass</class>
+ <widget class="QMainWindow" name="MyOSGEarthQTClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1625</width>
+    <height>977</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MyOSGEarthQT</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icon/earth2.jpg</normaloff>../icon/earth2.jpg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMenu {
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #FFFFFF, stop: 0.5 #DCE6F4,
+                                stop: 0.95 #DCE6F4, stop: 1.0 #E5F0FB);
+}
+
+MenuItemWidget,QMenu::item {
+     /* sets background of menu item. set this to something non-transparent
+         if you want menu color and menu item color to be different */
+     background-color: transparent;
+     padding:8px 35px;/*设置菜单项文字上下和左右的内边距，效果就是菜单中的条目左右上下有了间隔*/
+     margin:0px 4px;/*设置菜单项的外边距*/
+     border-bottom:1px solid #DBDBDB;/*为菜单项之间添加横线间隔*/
+ }
+  
+ MenuItemWidget::hover,QMenu::item:selected { /* when user selects item using mouse or keyboard */
+     background-color: #2dabf9;/*这一句是设置菜单项鼠标经过选中的样式*/
+ }
+
+/*MenuItemWidget::hover{
+	border: 1px solid #FFB700;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,stop:0 #FEF9F4, stop:0.38 #FDE0BD,stop:0.39 #FFCE69, stop:1 #FFFFE7);
+}*/
+
+/*QMenu::item:selected { 
+    background-color: rgba(220, 224, 231,100);
+}*/
+
+#MyOSGEarthQTClass{
+	background-color:rgb(255, 255, 255);
+}
+
+QWidget{
+	font-family: &quot;微软雅黑&quot;;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#centralWidget::tab-bar {
+ 	border: 0px solid #BAC9DB;
+}
+#centralWidget QTabBar::tab:selected{
+	border: 0px solid #BAC9DB;
+	background: white;
+    border-bottom-color: #FFFFFF;
+}
+#centralWidget QTabBar::tab:hover:!selected{
+	border: 0px solid #ECBC3D;
+}
+#centralWidget QTabBar::tab:!selected {
+    margin-top: 0px; 
+}
+
+#centralWidget QToolButton{
+	background-color:transparent;
+	min-width:16px;
+	min-height:16px;
+}
+
+#centralWidget QToolButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+		stop:0 #ddf4ff, stop:0.5 #9de0ff,stop:0.51 #87d8ff, stop:1 #c6edff);
+	border:0px;
+	border-radius:5px;
+}
+
+#centralWidget QToolButton:checked{
+		background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+		stop:0 #ddf4ff, stop:0.5 #9de0ff,stop:0.51 #87d8ff, stop:1 #c6edff);
+
+	border-radius:5px;
+}  
+
+#centralWidget QToolButton::menu-button:hover {
+    border-left: 1px solid #444444;
+    background: transparent;
+    width: 24px;
+}
+
+#centralWidget QToolButton::menu-indicator {
+    subcontrol-position: bottom center;
+	position: relative;
+    bottom : 0px;
+}
+</string>
+   </property>
+   <widget class="osgQtView" name="openGLWidget">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-10</y>
+      <width>1511</width>
+      <height>921</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1625</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="AlternateBase">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="AlternateBase">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="AlternateBase">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <widget class="QMenu" name="ParamSetting">
+    <property name="title">
+     <string>参数</string>
+    </property>
+    <addaction name="SetLosHeight"/>
+    <addaction name="ViewshedPara"/>
+   </widget>
+   <widget class="QMenu" name="Place">
+    <property name="title">
+     <string>地点</string>
+    </property>
+    <addaction name="Fuzhou"/>
+    <addaction name="Boston"/>
+    <addaction name="SciencePark"/>
+    <addaction name="Airport"/>
+    <addaction name="DongBaoShan"/>
+   </widget>
+   <widget class="QMenu" name="Help">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="information"/>
+   </widget>
+   <widget class="QMenu" name="Analaysis">
+    <property name="title">
+     <string>分析</string>
+    </property>
+    <addaction name="VisibilityAnalysis"/>
+    <addaction name="ViewshedAnalysis"/>
+    <addaction name="RadarAnalysis"/>
+    <addaction name="WaterAnalysis"/>
+    <addaction name="TerrainProfileAnalysis"/>
+    <addaction name="Fire"/>
+    <addaction name="Distance"/>
+    <addaction name="Area"/>
+    <addaction name="Angle"/>
+    <addaction name="AddModel"/>
+    <addaction name="Addsatellite"/>
+    <addaction name="Tianwa"/>
+    <addaction name="Dynamictexture"/>
+    <addaction name="TrailLine"/>
+    <addaction name="slopeAnalysis"/>
+    <addaction name="ClearAnalysis"/>
+   </widget>
+   <widget class="QMenu" name="File">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="AddEarth"/>
+    <addaction name="AddElevation"/>
+    <addaction name="AddVector"/>
+    <addaction name="AddKml"/>
+   </widget>
+   <widget class="QMenu" name="Tool">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <addaction name="AddMiniMap"/>
+    <addaction name="AddScaleBar"/>
+    <addaction name="AddCompass"/>
+    <addaction name="ProvincialBoundary"/>
+    <addaction name="FeaturesQuery"/>
+    <addaction name="AddCityModel"/>
+    <addaction name="AddTiltphotographymodel"/>
+    <addaction name="PathRoaming"/>
+    <addaction name="Addgraticule"/>
+    <addaction name="ChangeTime"/>
+   </widget>
+   <widget class="QMenu" name="Draw">
+    <property name="title">
+     <string>绘制</string>
+    </property>
+    <addaction name="AddPoint"/>
+    <addaction name="AddLine"/>
+    <addaction name="AddRectangle"/>
+    <addaction name="AddPolygon"/>
+    <addaction name="AddCircle"/>
+    <addaction name="StraightArrow"/>
+    <addaction name="DoubleArrow"/>
+    <addaction name="DiagonalArrow"/>
+    <addaction name="Lune"/>
+    <addaction name="GatheringPlace"/>
+    <addaction name="ParallelSearch"/>
+    <addaction name="SectorSearch"/>
+   </widget>
+   <widget class="QMenu" name="Weather">
+    <property name="title">
+     <string>天气</string>
+    </property>
+    <addaction name="FogEffect"/>
+    <addaction name="Rain"/>
+    <addaction name="Snow"/>
+    <addaction name="Cloud"/>
+   </widget>
+   <addaction name="File"/>
+   <addaction name="Analaysis"/>
+   <addaction name="ParamSetting"/>
+   <addaction name="Tool"/>
+   <addaction name="Draw"/>
+   <addaction name="Weather"/>
+   <addaction name="Place"/>
+   <addaction name="Help"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="AlternateBase">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="AlternateBase">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="AlternateBase">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>18</width>
+     <height>18</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="information"/>
+   <addaction name="AddEarth"/>
+   <addaction name="AddElevation"/>
+   <addaction name="AddVector"/>
+   <addaction name="AddKml"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="Base">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="AnalaysistoolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>RightToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="VisibilityAnalysis"/>
+   <addaction name="ViewshedAnalysis"/>
+   <addaction name="RadarAnalysis"/>
+   <addaction name="WaterAnalysis"/>
+   <addaction name="TerrainProfileAnalysis"/>
+   <addaction name="Fire"/>
+   <addaction name="Distance"/>
+   <addaction name="Area"/>
+   <addaction name="Angle"/>
+   <addaction name="ClearAnalysis"/>
+   <addaction name="AddModel"/>
+   <addaction name="Addsatellite"/>
+   <addaction name="Tianwa"/>
+   <addaction name="Dynamictexture"/>
+   <addaction name="TrailLine"/>
+   <addaction name="slopeAnalysis"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>5</pointsize>
+    </font>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="AddMiniMap"/>
+   <addaction name="AddScaleBar"/>
+   <addaction name="AddCompass"/>
+   <addaction name="ProvincialBoundary"/>
+   <addaction name="FeaturesQuery"/>
+   <addaction name="AddCityModel"/>
+   <addaction name="PathRoaming"/>
+   <addaction name="AddTiltphotographymodel"/>
+   <addaction name="Addgraticule"/>
+  </widget>
+  <widget class="QToolBar" name="DrawtoolBar">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>18</width>
+     <height>18</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="AddPoint"/>
+   <addaction name="AddLine"/>
+   <addaction name="AddRectangle"/>
+   <addaction name="AddPolygon"/>
+   <addaction name="AddCircle"/>
+   <addaction name="StraightArrow"/>
+   <addaction name="DoubleArrow"/>
+   <addaction name="DiagonalArrow"/>
+   <addaction name="Lune"/>
+   <addaction name="GatheringPlace"/>
+   <addaction name="ParallelSearch"/>
+   <addaction name="SectorSearch"/>
+  </widget>
+  <widget class="QToolBar" name="WeathertoolBar">
+   <property name="windowTitle">
+    <string>toolBar_3</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>18</width>
+     <height>18</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="Rain"/>
+   <addaction name="Snow"/>
+   <addaction name="Cloud"/>
+   <addaction name="FogEffect"/>
+  </widget>
+  <widget class="QToolBar" name="PlacetoolBar">
+   <property name="windowTitle">
+    <string>toolBar_4</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>18</width>
+     <height>18</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="Fuzhou"/>
+   <addaction name="Boston"/>
+   <addaction name="Airport"/>
+   <addaction name="SciencePark"/>
+   <addaction name="DongBaoShan"/>
+  </widget>
+  <action name="SetLosHeight">
+   <property name="text">
+    <string>设置视高</string>
+   </property>
+  </action>
+  <action name="ViewshedPara">
+   <property name="text">
+    <string>视域参数</string>
+   </property>
+  </action>
+  <action name="Fuzhou">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/山.png</normaloff>../icon/山.png</iconset>
+   </property>
+   <property name="text">
+    <string>福州大学周边山区</string>
+   </property>
+  </action>
+  <action name="Boston">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/城市.png</normaloff>../icon/城市.png</iconset>
+   </property>
+   <property name="text">
+    <string>波士顿</string>
+   </property>
+  </action>
+  <action name="Airport">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/机场.png</normaloff>../icon/机场.png</iconset>
+   </property>
+   <property name="text">
+    <string>福州长乐机场</string>
+   </property>
+  </action>
+  <action name="SciencePark">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/大学.png</normaloff>../icon/大学.png</iconset>
+   </property>
+   <property name="text">
+    <string>福大科技园</string>
+   </property>
+  </action>
+  <action name="information">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/earth.jpg</normaloff>../icon/earth.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="DongBaoShan">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/旅行景区.png</normaloff>../icon/旅行景区.png</iconset>
+   </property>
+   <property name="text">
+    <string>东宝山</string>
+   </property>
+  </action>
+  <action name="AddMiniMap">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/地图.png</normaloff>../icon/地图.png</iconset>
+   </property>
+   <property name="text">
+    <string>鹰眼图</string>
+   </property>
+  </action>
+  <action name="AddScaleBar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/比例尺.png</normaloff>../icon/比例尺.png</iconset>
+   </property>
+   <property name="text">
+    <string>比例尺</string>
+   </property>
+  </action>
+  <action name="AddCompass">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/指北针.png</normaloff>../icon/指北针.png</iconset>
+   </property>
+   <property name="text">
+    <string>指北针</string>
+   </property>
+  </action>
+  <action name="ProvincialBoundary">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/省界线.png</normaloff>../icon/省界线.png</iconset>
+   </property>
+   <property name="text">
+    <string>省界线</string>
+   </property>
+  </action>
+  <action name="FeaturesQuery">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/查询.png</normaloff>../icon/查询.png</iconset>
+   </property>
+   <property name="text">
+    <string>查询</string>
+   </property>
+  </action>
+  <action name="AddCityModel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/Model.png</normaloff>../icon/Model.png</iconset>
+   </property>
+   <property name="text">
+    <string>城市</string>
+   </property>
+  </action>
+  <action name="PathRoaming">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/当前飞行路线.png</normaloff>../icon/当前飞行路线.png</iconset>
+   </property>
+   <property name="text">
+    <string>漫游</string>
+   </property>
+  </action>
+  <action name="AddTiltphotographymodel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/dc-icon-大学科技园.png</normaloff>../icon/dc-icon-大学科技园.png</iconset>
+   </property>
+   <property name="text">
+    <string>TP模型</string>
+   </property>
+  </action>
+  <action name="Addgraticule">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/地球.png</normaloff>../icon/地球.png</iconset>
+   </property>
+   <property name="text">
+    <string>经纬线</string>
+   </property>
+  </action>
+  <action name="AddKml">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/加载kml.png</normaloff>../icon/加载kml.png</iconset>
+   </property>
+   <property name="text">
+    <string>KML</string>
+   </property>
+  </action>
+  <action name="AddVector">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/vector.png</normaloff>../icon/vector.png</iconset>
+   </property>
+   <property name="text">
+    <string>矢量</string>
+   </property>
+  </action>
+  <action name="AddPoint">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/placename.png</normaloff>../icon/placename.png</iconset>
+   </property>
+   <property name="text">
+    <string>点</string>
+   </property>
+  </action>
+  <action name="AddLine">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/线.png</normaloff>../icon/线.png</iconset>
+   </property>
+   <property name="text">
+    <string>线</string>
+   </property>
+  </action>
+  <action name="AddRectangle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/面.png</normaloff>../icon/面.png</iconset>
+   </property>
+   <property name="text">
+    <string>矩形</string>
+   </property>
+  </action>
+  <action name="AddPolygon">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/多边形.png</normaloff>../icon/多边形.png</iconset>
+   </property>
+   <property name="text">
+    <string>多边形</string>
+   </property>
+  </action>
+  <action name="AddCircle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/圆.png</normaloff>../icon/圆.png</iconset>
+   </property>
+   <property name="text">
+    <string>圆</string>
+   </property>
+  </action>
+  <action name="FogEffect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/雾.png</normaloff>../icon/雾.png</iconset>
+   </property>
+   <property name="text">
+    <string>雾</string>
+   </property>
+  </action>
+  <action name="Rain">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/雨.png</normaloff>../icon/雨.png</iconset>
+   </property>
+   <property name="text">
+    <string>雨</string>
+   </property>
+  </action>
+  <action name="Snow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/雪.png</normaloff>../icon/雪.png</iconset>
+   </property>
+   <property name="text">
+    <string>雪</string>
+   </property>
+  </action>
+  <action name="Cloud">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/云.png</normaloff>../icon/云.png</iconset>
+   </property>
+   <property name="text">
+    <string>云</string>
+   </property>
+  </action>
+  <action name="AddElevation">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/地形修改模型.png</normaloff>../icon/地形修改模型.png</iconset>
+   </property>
+   <property name="text">
+    <string>地形</string>
+   </property>
+  </action>
+  <action name="AddEarth">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/添加地球.png</normaloff>../icon/添加地球.png</iconset>
+   </property>
+   <property name="text">
+    <string>地球</string>
+   </property>
+  </action>
+  <action name="VisibilityAnalysis">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/visibleanalysis.png</normaloff>../icon/visibleanalysis.png</iconset>
+   </property>
+   <property name="text">
+    <string>通视分析</string>
+   </property>
+  </action>
+  <action name="ViewshedAnalysis">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/visiblearea.png</normaloff>../icon/visiblearea.png</iconset>
+   </property>
+   <property name="text">
+    <string>视域分析</string>
+   </property>
+  </action>
+  <action name="RadarAnalysis">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/雷达.png</normaloff>../icon/雷达.png</iconset>
+   </property>
+   <property name="text">
+    <string>雷达包络</string>
+   </property>
+  </action>
+  <action name="WaterAnalysis">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/水.png</normaloff>../icon/水.png</iconset>
+   </property>
+   <property name="text">
+    <string>淹没分析</string>
+   </property>
+  </action>
+  <action name="TerrainProfileAnalysis">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/profile.png</normaloff>../icon/profile.png</iconset>
+   </property>
+   <property name="text">
+    <string>剖面分析</string>
+   </property>
+  </action>
+  <action name="Fire">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/火.png</normaloff>../icon/火.png</iconset>
+   </property>
+   <property name="text">
+    <string>点火源</string>
+   </property>
+  </action>
+  <action name="Distance">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/distance.png</normaloff>../icon/distance.png</iconset>
+   </property>
+   <property name="text">
+    <string>距离测量</string>
+   </property>
+  </action>
+  <action name="Area">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/area.png</normaloff>../icon/area.png</iconset>
+   </property>
+   <property name="text">
+    <string>面积测量</string>
+   </property>
+  </action>
+  <action name="Angle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/angle.png</normaloff>../icon/angle.png</iconset>
+   </property>
+   <property name="text">
+    <string>角度测量</string>
+   </property>
+  </action>
+  <action name="ClearAnalysis">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/Clear.png</normaloff>../icon/Clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>清除分析</string>
+   </property>
+  </action>
+  <action name="AddModel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/热气球.png</normaloff>../icon/热气球.png</iconset>
+   </property>
+   <property name="text">
+    <string>航拍模拟</string>
+   </property>
+  </action>
+  <action name="Addsatellite">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/satellitepath.png</normaloff>../icon/satellitepath.png</iconset>
+   </property>
+   <property name="text">
+    <string>卫星模拟</string>
+   </property>
+  </action>
+  <action name="Tianwa">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/填挖方分析.png</normaloff>../icon/填挖方分析.png</iconset>
+   </property>
+   <property name="text">
+    <string>填挖(待定)</string>
+   </property>
+  </action>
+  <action name="Dynamictexture">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/颜色.png</normaloff>../icon/颜色.png</iconset>
+   </property>
+   <property name="text">
+    <string>动态纹理</string>
+   </property>
+  </action>
+  <action name="TrailLine">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/飞线图.png</normaloff>../icon/飞线图.png</iconset>
+   </property>
+   <property name="text">
+    <string>飞线</string>
+   </property>
+  </action>
+  <action name="slopeAnalysis">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/坡度分析.png</normaloff>../icon/坡度分析.png</iconset>
+   </property>
+   <property name="text">
+    <string>坡度分析</string>
+   </property>
+  </action>
+  <action name="StraightArrow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/直箭头.png</normaloff>../icon/直箭头.png</iconset>
+   </property>
+   <property name="text">
+    <string>直箭头</string>
+   </property>
+  </action>
+  <action name="DoubleArrow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/双箭头.png</normaloff>../icon/双箭头.png</iconset>
+   </property>
+   <property name="text">
+    <string>双箭头</string>
+   </property>
+  </action>
+  <action name="DiagonalArrow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/斜箭头.png</normaloff>../icon/斜箭头.png</iconset>
+   </property>
+   <property name="text">
+    <string>斜箭头</string>
+   </property>
+  </action>
+  <action name="Lune">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/弓形.png</normaloff>../icon/弓形.png</iconset>
+   </property>
+   <property name="text">
+    <string>弓形</string>
+   </property>
+  </action>
+  <action name="GatheringPlace">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/聚居区.png</normaloff>../icon/聚居区.png</iconset>
+   </property>
+   <property name="text">
+    <string>聚居区</string>
+   </property>
+  </action>
+  <action name="ParallelSearch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/平行.png</normaloff>../icon/平行.png</iconset>
+   </property>
+   <property name="text">
+    <string>平行搜寻区</string>
+   </property>
+  </action>
+  <action name="SectorSearch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icon/搜寻区.png</normaloff>../icon/搜寻区.png</iconset>
+   </property>
+   <property name="text">
+    <string>扇形搜寻区</string>
+   </property>
+  </action>
+  <action name="ChangeTime">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>转换时间(简易)</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>osgQtView</class>
+   <extends>QOpenGLWidget</extends>
+   <header>osgqtview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="MyOSGEarthQT.qrc"/>
+ </resources>
+ <connections/>
+</ui>

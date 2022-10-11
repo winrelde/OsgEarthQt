@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{701EBF1B-B386-442C-B160-78D2213DED3D}</ProjectGuid>
+    <Keyword>QtVS_v302</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>E:\5.12.1\msvc2017_64\include;E:\OSG\Atlas\OpenSceneGraph\include;E:\OSG\Atlas\thirdparty\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\OSG\Atlas\OpenSceneGraph\lib;E:\OSG\Atlas\thirdparty\lib;E:\5.12.1\msvc2017_64\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>E:\5.12.1\msvc2017_64\include;E:\BaiduNetdiskDownload\OSG\include;E:\BaiduNetdiskDownload\OSG\3rdParty\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\5.12.1\msvc2017_64\lib;E:\BaiduNetdiskDownload\OSG\lib;E:\BaiduNetdiskDownload\OSG\3rdParty\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenThreadsd.lib;osgd.lib;osgDBd.lib;osgFXd.lib;osgManipulatord.lib;osgParticled.lib;osgShadowd.lib;osgSimd.lib;osgTerraind.lib;osgUtild.lib;osgGAd.lib;osgViewerd.lib;osgTextd.lib;osgQt5d.lib;osgEarthd.lib;
+osgEarthUtild.lib
+;osgEarthFeaturesd.lib
+;osgEarthSymbologyd.lib;osgEarthAnnotationd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenThreads.lib;osg.lib;osgDB.lib;osgFX.lib;osgManipulator.lib;osgParticle.lib;osgShadow.lib;osgSim.lib;osgTerrain.lib;osgUtil.lib;osgGA.lib;osgViewer.lib;osgText.lib;osgQt5.lib;osgEarth.lib;
+osgEarthUtil.lib
+;osgEarthFeatures.lib
+;osgEarthSymbology.lib;osgEarthAnnotation.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>
+      </StackReserveSize>
+      <HeapReserveSize>
+      </HeapReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AngleCaculator.cpp" />
+    <ClCompile Include="AreaCaculator.cpp" />
+    <ClCompile Include="CloudBlock.cpp" />
+    <ClCompile Include="Commpass.cpp" />
+    <ClCompile Include="DistanceCaculator.cpp" />
+    <ClCompile Include="DrawCircleTool.cpp" />
+    <ClCompile Include="DrawLineCallback.cpp" />
+    <ClCompile Include="DrawLineTool.cpp" />
+    <ClCompile Include="DrawPolygonTool.cpp" />
+    <ClCompile Include="DrawRectangleTool.cpp" />
+    <ClCompile Include="DrawTool.cpp" />
+    <ClCompile Include="GeoDiagonalArrow.cpp" />
+    <ClCompile Include="GeoDoubleArrow.cpp" />
+    <ClCompile Include="GeoGatheringPlace.cpp" />
+    <ClCompile Include="GeoLune.cpp" />
+    <ClCompile Include="GeoParallelSearch.cpp" />
+    <ClCompile Include="GeoSectorSearch.cpp" />
+    <ClCompile Include="GeoStraightArrow.cpp" />
+    <ClCompile Include="kfz.cpp" />
+    <ClCompile Include="LabelEvent.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyOSGEarthQT.cpp" />
+    <ClCompile Include="osgqtview.cpp" />
+    <ClCompile Include="OverviewMap.cpp" />
+    <ClCompile Include="PickEvent.cpp" />
+    <ClCompile Include="PlottingMath.cpp" />
+    <ClCompile Include="ScaleBar.cpp" />
+    <ClCompile Include="SetLosHeight.cpp" />
+    <ClCompile Include="TerrainProfileGraph.cpp" />
+    <ClCompile Include="TPGEvent.cpp" />
+    <ClCompile Include="ViewshedPara.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MyOSGEarthQT.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="kfz.ui" />
+    <QtUic Include="MyOSGEarthQT.ui" />
+    <QtUic Include="SetLosHeight.ui" />
+    <QtUic Include="ViewshedPara.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="MyOSGEarthQT.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AngleCaculator.h" />
+    <ClInclude Include="AreaCaculator.h" />
+    <ClInclude Include="CloudBlock.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="Compass.h" />
+    <ClInclude Include="DistanceCaculator.h" />
+    <ClInclude Include="DrawCircleTool.h" />
+    <ClInclude Include="DrawLineCallback.h" />
+    <ClInclude Include="DrawLineTool.h" />
+    <ClInclude Include="DrawPolygonTool.h" />
+    <ClInclude Include="DrawRectangleTool.h" />
+    <ClInclude Include="DrawTool.h" />
+    <QtMoc Include="kfz.h" />
+    <ClInclude Include="GeoDiagonalArrow.h" />
+    <ClInclude Include="GeoDoubleArrow.h" />
+    <ClInclude Include="GeoGatheringPlace.h" />
+    <ClInclude Include="GeoLune.h" />
+    <ClInclude Include="GeoParallelSearch.h" />
+    <ClInclude Include="GeoSectorSearch.h" />
+    <ClInclude Include="GeoStraightArrow.h" />
+    <ClInclude Include="LabelEvent.h" />
+    <ClInclude Include="osgqtview.h" />
+    <ClInclude Include="OverviewMap.h" />
+    <ClInclude Include="PickEvent.h" />
+    <ClInclude Include="PlottingMath.h" />
+    <ClInclude Include="ScaleBar.h" />
+    <ClInclude Include="TerrainProfileGraph.h" />
+    <ClInclude Include="TPGEvent.h" />
+    <QtMoc Include="ViewshedPara.h" />
+    <QtMoc Include="SetLosHeight.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
